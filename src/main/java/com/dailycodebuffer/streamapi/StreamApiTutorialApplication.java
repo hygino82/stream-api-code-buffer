@@ -75,8 +75,18 @@ public class StreamApiTutorialApplication {
 					.orElse(null);
 				
 				
-				System.out.println(firstEmp);
+		System.out.println(firstEmp);
+				
+		System.out.println("-------------------------------------\n");		
+		//Flat Map
+		String projects = 
+			employees
+			.stream()
+			.map(emp -> emp.getProjects())
+			.flatMap(strings -> strings.stream())
+			.collect(Collectors.joining(","));
 		
+		System.out.println(projects);
 	}
 
 }
